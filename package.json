@@ -1,0 +1,11 @@
+{
+  "name": "webbrick.js",
+  "version": "0.0.1",
+  "description": "Library for interacting with a Webbricks",
+  "main": "index.js",
+  "dependencies": {
+    "request": "2.12.0",
+    "async": "~0.1.22",
+    "bit-mask": "~0.0.1"
+  }
+}
