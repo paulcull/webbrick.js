@@ -1,39 +1,45 @@
-// var Hue = require('../index.js');
+var WebBrick = require('../index.js');
 
-// var appName = "My App";
-// var util = require('util')
+var appName = "My App";
+var util = require('util')
 
-// Hue.discover(function(stations) {
+WebBrick.discover(function(brickConf) {
+//	console.log(JSON.stringify(brickIP));
+	console.log(JSON.stringify(brickConf));
+//	console.log(brickConf);
+//  brickConf.forEach(fetchBricks);
+});
 
-//   stations.forEach(fetchLights);
-// });
+function fetchBricks(brick) {
 
-// function fetchLights(station) {
+ var brick = WebBrick.createClient({
+    brickIp:brick,
+    appName:appName
+  });
 
-//  var client = Hue.createClient({
-//     stationIp:station,
-//     appName:appName
-//   });
 
-//   client.lights(function(err,lights) {
 
-//     if (err && err.type === 1) {
-//       // App has not been registered
+  brick.anOut(0,function(err,lights) {
 
-//       console.log("Please go and press the link button on your base station(s)");
-//       client.register(function(err) {
+    if (err && err.type === 1) {
+      // App has not been registered
 
-//         if (err) {
-//           // Could not register
-//         } else {
-//           // Registered, carry on
-//         }
-//       });
-//     } else {
-//       console.log(lights);
-//     }
-//   });
-// };
+      console.log("Please go and press the link button on your base station(s)");
+      console.log(err.toString());
+
+      client.register(function(err) {
+
+        if (err) {
+          // Could not register
+        } else {
+          // Registered, carry on
+        }
+      });
+    } else {
+      console.log(lights);
+    }
+  });
+};
 
 
 // hue.lights(function(lights) {
