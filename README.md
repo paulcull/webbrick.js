@@ -1,6 +1,8 @@
 Node Webbrick Module
 ---
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/paulcull/webbrick.js.svg)](https://greenkeeper.io/)
+
 ## To install
 ```
 npm install webbrick.js
